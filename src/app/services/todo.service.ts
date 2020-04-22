@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ITodo } from '../interfaces/ITodo';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class TodoService {
   ];
   todoId = 0;
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   addTodo(title: string): void {
     this.todoList.push({
@@ -22,9 +24,19 @@ export class TodoService {
     });
   }
 
-  deleteTodo(todo: ITodo) {
-    const index = this.todoList.findIndex(todoItem => todoItem === todo);
-    this.todoList.splice(index, 1);
+ async deleteTodo(todo: ITodo) {
+ //show
+ const modal = this.modalService.open(ConfirmationModalComponent);
+ const component: ConfirmationModalComponent = modal.componentInstance;
+ component.modalInstance = modal;
+
+ const result = await modal.result;
+
+ //if the result is yes
+ if (result === "yes") {
+   const index = this.todoList.findIndex((todoItem) => todoItem === todo);
+   this.todoList.splice(index, 1);
+ }
   }
 
   getTodos(): ITodo[] {

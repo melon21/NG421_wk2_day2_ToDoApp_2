@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { async } from '@angular/core/testing';
+import { TodoService } from '../services/todo.service';
+import { ITodo } from '../interfaces/itodo';
 
 @Component({
   selector: 'app-todo',
@@ -8,12 +10,12 @@ import { async } from '@angular/core/testing';
 
 })
 export class TodoComponent implements OnInit {
-
-  constructor(private modalService: ModalService) { }
+@Input() todo:  ITodo;
+  constructor(private service: TodoService) { }
 
   ngOnInit() {
   }
-async deleteToDo(){
-  const result = this.modalService.show()
-}
+deleteToDo(){
+this.service.deleteTodo(this.todo);
+  }
 }

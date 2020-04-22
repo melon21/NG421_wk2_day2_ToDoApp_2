@@ -6,18 +6,21 @@ import { AppComponent } from './app.component';
 import { TodoComponent } from './todo/todo.component';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
     CreateTodoComponent,
-    TodoListComponent
+    TodoListComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    NgModule
   ],
   providers: [],
   bootstrap: [AppComponent]
