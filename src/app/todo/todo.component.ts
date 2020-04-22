@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { async } from '@angular/core/testing';
 import { TodoService } from '../services/todo.service';
 import { ITodo } from '../interfaces/itodo';
 
@@ -15,7 +14,7 @@ export class TodoComponent implements OnInit {
 
   ngOnInit() {
   }
-deleteToDo(){
+deleteTodo(){
 this.service.deleteTodo(this.todo);
   }
 }

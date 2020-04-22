@@ -7,6 +7,7 @@ import { TodoComponent } from './todo/todo.component';
 import { CreateTodoComponent } from './create-todo/create-todo.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,10 @@ import { ConfirmationModalComponent } from './confirmation-modal/confirmation-mo
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgModule
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmationModalComponent]
 })
 export class AppModule { }
