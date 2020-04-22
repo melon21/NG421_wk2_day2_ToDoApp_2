@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TodoService } from '../services/todo.service';
 
 @Component({
   selector: 'app-create-todo',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-todo.component.css']
 })
 export class CreateTodoComponent implements OnInit {
+todoTitle = '';
+  constructor(private todoService: TodoService) {
 
-  constructor() { }
+   }
 
   ngOnInit() {
   }
-
+  addTodo():void {
+    {
+this.todoService.addTodo(this.todoTitle)
+    
+    this.todoTitle = '';
+    }
+  }
 }

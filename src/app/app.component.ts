@@ -19,18 +19,7 @@ export class AppComponent implements OnInit{
     
     ];
   }
-  addTodo():void {
-    this.todoList.push({
-      id: this.todoId,
-      title: this.todoTitle,
-      description: '',
-      isDone: false,
-    });
-
-    this.todoTitle = '';
-    this.todoId++;
-
-  }
+ 
   deleteTodo(todo:any) {
     const index = this.todoList.findIndex(todoItem => todoItem === todo);
     this.todoList.splice(index, 1);
