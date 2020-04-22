@@ -23,7 +23,8 @@ export class AppComponent implements OnInit{
     this.todoList.push({
       id: this.todoId,
       title: this.todoTitle,
-      description: ''
+      description: '',
+      isDone: false,
     });
 
     this.todoTitle = '';

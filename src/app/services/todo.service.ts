@@ -7,7 +7,7 @@ import { ITodo } from '../interfaces/ITodo';
 export class TodoService {
 
   todoList: ITodo[] = [
-    { id: 1, title: 'Install Angular CLI', isDone: false },
+    { id: 1, title: 'Install Angular CLI', description: ' ', isDone: false },
   ];
   todoId = 0;
 
@@ -17,7 +17,8 @@ export class TodoService {
     this.todoList.push({
       id: this.todoId++,
       title,
-      isDone: false
+      description: '',
+      isDone: false,
     });
   }
 
